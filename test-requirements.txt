@@ -1,0 +1,7 @@
+mock
+pytest
+coverage
+flask
+requests
+six
+tox
