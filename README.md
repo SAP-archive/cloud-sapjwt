@@ -75,7 +75,7 @@ pip install --user sap_xssec
 If you have not yet configured any sap pypi registry use this call:
 
 ```
-pip install --user --index-url http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases.pypi/simple/ --trusted-host nexus.wdf.sap.corp sap_xssec
+pip install sap_xssec
 ```
 
 # CF Deployment 
