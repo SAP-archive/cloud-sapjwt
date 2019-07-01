@@ -1,9 +1,9 @@
-# sap_py_jwt
-=============
+# cloud-sapjwt
+==============
 
-JSON Web Token (JWT) offline validation for python with current binaries of SAPJWT verification library.
+JSON Web Token (JWT) offline validation for SAPCP client applications with current binaries of SAPJWT verification library.
 
-This project contains the JWT binding for python. It also includes the native libraries to run on XSA platforms. 
+This project contains the JWT binding. It also includes the native libraries to run on XSA platforms. 
 If you need another platforms, please write to the author.
 
 # Platforms
@@ -86,3 +86,9 @@ https://docs.cloudfoundry.org/buildpacks/python/index.html#vendoring
 Your application should have a so called requirements.txt file. In this file you define your dependencies, e.g. sap_xssec (this package includes sap_py_jwt). So before a push to cf you create a local vendor folder and put all dependend binaries into this folder.
 
 The push command uploads the complete local folder to CF and the python buildpack then installs the private packages from the vendor folder.
+
+# Known issues
+This project provide binary language bindings for cloud platforms. Linux x64 can be used in docker images which depend on Debian derivates of Linux. There is currently no Alpine binary available, because of different linker, see https://www.musl-libc.org/.
+
+# License
+Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the SAP Sample Code License, except as noted otherwise in the [LICENSE](LICENSE) file.
