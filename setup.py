@@ -1,6 +1,6 @@
 """setup for sap-py-jwt
 See:
-https://github.wdf.sap.corp/xs2/sap-py-jwt
+https://github.com/SAP-samples/cloud-sapjwt
 """
 
 # To use a consistent encoding
