@@ -1,7 +1,7 @@
 # cloud-sapjwt
 ==============
 
-JSON Web Token (JWT) offline validation for SAPCP client applications with current binaries of SAPJWT verification library.
+JSON Web Token (JWT) offline validation for SAP cloud platform client applications with current binaries of SAPJWT verification library.
 
 This project contains the JWT binding. It also includes the native libraries to run on XSA platforms. 
 If you need another platforms, please write to the author.
