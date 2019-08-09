@@ -1,0 +1,10 @@
+{
+ "client_id":"testClient",
+ "exp":2147483647,
+ "scope":["openid"],
+ "user_name":"testUser",
+ "user_id":"1234",
+ "email":"testUser@testOrg",
+ "zid":"demo",
+ "grant_type":"password"
+}

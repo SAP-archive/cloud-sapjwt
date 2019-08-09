@@ -1,13 +1,19 @@
 sudo: false
-language: python
 matrix:
   fast_finish: true
   include:
-    - python: 2.7
-      env: TOXENV=py27
-    - python: 3.6
-      env: TOXENV=py36
-install:
-  - pip install tox
-
-script: tox
+    - language: python
+      python:
+        - 2.7
+          env: TOXENV=py27
+        - 3.6
+          env: TOXENV=py36
+      install:
+        - pip install tox
+      script:
+        - tox
+    - language: java
+      script:
+        - mvn clean verify
+notifications:
+  email: false
