@@ -19,13 +19,54 @@
     <jacocoVersion>0.8.4</jacocoVersion>
     <junit.jupiter.version>5.2.0</junit.jupiter.version>
     <commonsIOVersion>2.4</commonsIOVersion>
-    <bouncyCastle>1.61</bouncyCastle>
+    <bouncyCastle>1.62</bouncyCastle>
     <springSecurityJwtVersion>1.0.8.RELEASE</springSecurityJwtVersion>
   </properties>
 
   <packaging>jar</packaging>
-  <version>1.5.27</version>
+  <version>1.5.27.3</version>
   <name>sapjwt</name>
+  <description>
+      JSON Web Token (JWT) offline validation for SAP cloud platform client applications with current binaries of SAPJWT verification library.
+  </description>
+  <url>https://github.com/SAP-samples/cloud-sapjwt</url>
+
+
+  <licenses>
+    <license>
+      <name>SAP Developer</name>
+      <url>https://tools.eu1.hana.ondemand.com/developer-license-3_1.txt</url>
+    </license>
+    <license>
+      <name>SAP SAMPLE CODE LICENSE AGREEMENT</name>
+      <url>https://github.com/SAP-samples/cloud-sapjwt/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>XSUAA Development</name>
+      <email>xsuaa-development@sap.com</email>
+      <organization>SAP SE</organization>
+      <organizationUrl>https://www.sap.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:SAP-samples/cloud-sapjwt.git</connection>
+    <developerConnection>scm:git@github.com:SAP-samples/cloud-sapjwt.git</developerConnection>
+    <url>https://github.com/SAP-samples/cloud-sapjwt/tree/master</url>
+  </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -147,6 +188,58 @@
           </execution>
         </executions>
       </plugin>
+
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>3.0.0</version>
+    <executions>
+      <execution>
+      <id>attach-javadocs</id>
+      <goals>
+        <goal>jar</goal>
+      </goals>
+      </execution>
+    </executions>
+    </plugin>
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-source-plugin</artifactId>
+    <version>3.0.1</version>
+    <executions>
+      <execution>
+      <id>attach-sources</id>
+      <goals>
+        <goal>jar</goal>
+      </goals>
+      </execution>
+    </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.6</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.sonatype.plugins</groupId>
+      <artifactId>nexus-staging-maven-plugin</artifactId>
+      <version>1.6.8</version>
+      <extensions>true</extensions>
+      <configuration>
+        <serverId>ossrh</serverId>
+        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+        <autoReleaseAfterClose>false</autoReleaseAfterClose>
+      </configuration>
+    </plugin>
     </plugins>
   </build>
 
