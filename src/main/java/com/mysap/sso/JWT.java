@@ -206,6 +206,7 @@ public class JWT
      * Use key as verification key.
      * 
      * @param jwt JWT token to be validated
+     * @param rsa_key key alg
      * @return String with JWT payload
      *
      * @throws Exception Text message with error.
