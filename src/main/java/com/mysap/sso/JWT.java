@@ -37,7 +37,6 @@ public class JWT
     public static final int ISSUER_CERT_FINGERPRINT= 6;
     public static final int ISSUER_CERT_ALGID      = 7;
     public static final int ISSUER_CERT_ALL        = 8;
- 
     public static final int JWT_ALG_UNDEFINED      = 0;
     public static final int JWT_ALG_HS256          = 1;
     public static final int JWT_ALG_HS384          = 2;
@@ -112,7 +111,7 @@ public class JWT
             }
             if (in != null && in.available() > 0) {
                 temp = new File(System.getProperty("java.io.tmpdir") + "/" + SECLIBRARY);
-                if(temp.exists() == true) {
+                if(temp.exists() == true || SECSUBDIR.equalsIgnoreCase("windows")) {
                    temp = File.createTempFile("jni",SECLIBRARY,new File(System.getProperty("java.io.tmpdir")));
                 } else {
                    temp = File.createTempFile("jni", UUID.randomUUID().toString(), new File(System.getProperty("java.io.tmpdir")));
@@ -142,9 +141,8 @@ public class JWT
             }
         } catch (Throwable t) {
             // $JL-EXC$
-            if (temp != null) {
-                if(temp.delete())
-                    LOGGER.severe(LOCATION + ": JNI file deleted");
+            if (temp != null && temp.delete()) {
+                LOGGER.severe(LOCATION + ": JNI file deleted");
             }
             LOGGER.severe(LOCATION + ": Error loading JNI: " + t.getMessage());
             LOGGER.severe(LOCATION + ": Could not load dynamic library " + SECLIBRARY);

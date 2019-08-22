@@ -23,6 +23,8 @@ package com.sap.cloud.security.jwt;
 import com.mysap.sso.JWT;
 
 /**
+ * JWT (json web token) signature validation library
+ *
  * @author SAP SE
  *
  */
@@ -112,7 +114,6 @@ public class JwtValidation {
         int info_id) {
         return JWT.parseCertificate(cert, info_id);
     }
-        
     /**
      * Get property
      * @param name   property name to be retrieved
