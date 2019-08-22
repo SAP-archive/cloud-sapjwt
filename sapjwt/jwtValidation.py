@@ -97,6 +97,9 @@ class jwtValidation(object): # pylint: disable=R0902
         self.ssoextgetproperty = sapjwtCDLL.SsoExtGetProperty
         self.ssoextgetproperty.argtypes = [c_char_p]
         self.ssoextgetproperty.restype = c_char_p
+        # MySapParseJwtHeader
+        self.mysapparseheader = sapjwtCDLL.MySapParseJwtHeader
+        self.mysapparseheader.argtypes = [c_char_p, c_size_t, POINTER(JWT_INFO)]
         _rc = self.mysapinitialize(cast(0, c_char_p))
         if _rc != 0:
             print("error in initialize of SAPJWT") # pylint: disable=C0325

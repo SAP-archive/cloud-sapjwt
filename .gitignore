@@ -8,6 +8,7 @@ bin/
 gen/*
 *.jar
 *.war
+*.pyc
 metadata.xml
 *.log
 **/logs/*.txt
