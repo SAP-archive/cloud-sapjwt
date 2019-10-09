@@ -348,7 +348,7 @@ public class JWT
      * 
      * @throws Exception Text message with error.
      */
-    public static native Object[]  evalJWHeader(String jwt)
+    public static native Object[] evalJWHeader(String jwt)
                                                throws Exception;
 
     /**
