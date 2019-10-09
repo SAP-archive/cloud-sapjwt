@@ -157,21 +157,21 @@ public class JWT
      * 
      * @return true/false whether initialization was OK
      */
-    private static native synchronized boolean init(String seclib);
+    private static native boolean init(String seclib);
 
     /**
      * Returns internal version.
      * 
      * @return version
      */
-    public static native synchronized String getVersion();
+    public static native String getVersion();
     
     /**
      * Returns internal long version.
      * 
      * @return version
      */
-    public static native synchronized String getStringVersion();
+    public static native String getStringVersion();
 
     /**
      * Class constructor
@@ -299,7 +299,7 @@ public class JWT
      * @return Info string from certificate
      *  
      */
-    public static native synchronized String parseCertificate(
+    public static native String parseCertificate(
         byte[] cert,
         int info_id);
         
@@ -310,7 +310,7 @@ public class JWT
      * @return property string from SAPSSOEXT
      *  
      */
-    public static native synchronized String getProperty( String name );
+    public static native String getProperty( String name );
     
     /**
      * Set SAPSSOEXT property
@@ -320,7 +320,7 @@ public class JWT
      * @return true/false whether set was OK
      *  
      */
-    public static native synchronized boolean setProperty( String name, String value );
+    public static native boolean setProperty( String name, String value );
 
 
     /**
@@ -335,7 +335,7 @@ public class JWT
      * 
      * @throws Exception Text message with error.
      */
-    public static native synchronized Object[] evalJWTokenEx( String jwt, String key , int alg)
+    public static native Object[] evalJWTokenEx( String jwt, String key , int alg)
                                                throws Exception;
 
 
@@ -348,7 +348,7 @@ public class JWT
      * 
      * @throws Exception Text message with error.
      */
-    public static native synchronized Object[] evalJWHeader(String jwt)
+    public static native Object[] evalJWHeader(String jwt)
                                                throws Exception;
 
     /**

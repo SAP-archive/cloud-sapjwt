@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 1.5.28.0 - 2019-10-09
+- Remove synchronized keyword from all wrapper methods
+
 ## 1.5.0 - 2019-08-08
 - Update SAPJWT library 8.5.27
 
