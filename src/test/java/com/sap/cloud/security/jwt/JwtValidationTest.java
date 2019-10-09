@@ -123,9 +123,9 @@ class JwtValidationTest {
 		ExecutorService executor = Executors.newFixedThreadPool(10);
 		List<Future<Void>> results = new ArrayList<>();
 
+		JwtValidation jwt = new JwtValidation();
 		for (int i = 0; i < 10000; i++) {
 			Callable<Void> task = () -> {
-				JwtValidation jwt = new JwtValidation();
 				jwt.parseJwtHeader(Token);
 				jwt.checkRsaJwToken(Token, PublicKey);
 				return null;
