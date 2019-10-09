@@ -5,6 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
@@ -109,5 +116,25 @@ class JwtValidationTest {
 	void testHeaderAlg() throws Exception {
 		jwt.parseJwtHeader(Token);
 		assertEquals(JwtValidation.JWT_ALG_RS256, jwt.getHashAlg());
+	}
+
+	@Test
+	void testParallel() throws ExecutionException, InterruptedException {
+		ExecutorService executor = Executors.newFixedThreadPool(10);
+		List<Future<Void>> results = new ArrayList<>();
+
+		for (int i = 0; i < 10000; i++) {
+			Callable<Void> task = () -> {
+				JwtValidation jwt = new JwtValidation();
+				jwt.parseJwtHeader(Token);
+				jwt.checkRsaJwToken(Token, PublicKey);
+				return null;
+			};
+			Future<Void> res = executor.submit(task);
+			results.add(res);
+		}
+		for (Future<Void> res : results) {
+			res.get();
+		}
 	}
 }
